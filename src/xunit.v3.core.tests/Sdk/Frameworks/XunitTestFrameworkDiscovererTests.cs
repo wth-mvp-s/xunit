@@ -443,7 +443,7 @@ public class XunitTestFrameworkDiscovererTests
 			framework.ReportDiscoveredTestCase_Public(testCase, includeSourceInformation: true, messageBus);
 
 			var msg = Assert.Single(messageBus.Messages);
-			var discoveryMsg = Assert.IsAssignableFrom<ITestCaseDiscoveryMessage>(msg);
+			var discoveryMsg = Assert.IsAssignableFrom<_TestCaseDiscovered>(msg);
 			Assert.Same(testCase, discoveryMsg.TestCase);
 			Assert.Equal("Source File", testCase.SourceInformation.FileName);
 			Assert.Equal(42, testCase.SourceInformation.LineNumber);
@@ -457,7 +457,7 @@ public class XunitTestFrameworkDiscovererTests
 			framework.ReportDiscoveredTestCase_Public(testCase, includeSourceInformation: true, messageBus);
 
 			var msg = Assert.Single(messageBus.Messages);
-			var discoveryMsg = Assert.IsAssignableFrom<ITestCaseDiscoveryMessage>(msg);
+			var discoveryMsg = Assert.IsAssignableFrom<_TestCaseDiscovered>(msg);
 			Assert.Same(testCase, discoveryMsg.TestCase);
 			Assert.Equal("Alt Source File", testCase.SourceInformation.FileName);
 			Assert.Equal(2112, testCase.SourceInformation.LineNumber);

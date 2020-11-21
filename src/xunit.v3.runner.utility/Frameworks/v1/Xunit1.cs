@@ -166,7 +166,7 @@ namespace Xunit
 		}
 
 		void Find(
-			Predicate<ITestCaseDiscoveryMessage> filter,
+			Predicate<_TestCaseDiscovered> filter,
 			bool includeSourceInformation,
 			_IMessageSink messageSink)
 		{

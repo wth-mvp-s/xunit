@@ -20,9 +20,9 @@ namespace Xunit.Runner.Common
 		public event MessageHandler<_DiscoveryStarting>? DiscoveryStartingMessageEvent;
 
 		/// <summary>
-		/// Occurs when a <see cref="ITestCaseDiscoveryMessage"/> message is received.
+		/// Occurs when a <see cref="_TestCaseDiscovered"/> message is received.
 		/// </summary>
-		public event MessageHandler<ITestCaseDiscoveryMessage>? TestCaseDiscoveryMessageEvent;
+		public event MessageHandler<_TestCaseDiscovered>? TestCaseDiscoveryMessageEvent;
 
 		/// <inheritdoc/>
 		public bool OnMessage(IMessageSinkMessage message)

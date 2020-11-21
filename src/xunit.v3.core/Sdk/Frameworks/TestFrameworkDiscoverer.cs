@@ -275,7 +275,7 @@ namespace Xunit.Sdk
 				testCase.SourceInformation = new SourceInformation { FileName = result.FileName, LineNumber = result.LineNumber };
 			}
 
-			return messageBus.QueueMessage(new TestCaseDiscoveryMessage(testCase));
+			return messageBus.QueueMessage(new _TestCaseDiscovered(testCase));
 		}
 
 		/// <inheritdoc/>

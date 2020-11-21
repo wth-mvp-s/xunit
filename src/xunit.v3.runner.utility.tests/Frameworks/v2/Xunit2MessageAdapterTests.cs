@@ -110,6 +110,26 @@ public class Xunit2MessageAdapterTests
 	public class DiscoveryTests
 	{
 		[Fact]
+		public void TestCaseDiscoveryMessage()
+		{
+			var v2Message = v2Mocks.TestCaseDiscoveryMessage(TestCase);
+
+			var adapted = TestableXunit2MessageAdapter.Adapt(v2Message);
+
+			var v3Message = Assert.IsType<_TestCaseDiscovered>(adapted);
+			Assert.Equal(TestAssemblyUniqueID, v3Message.AssemblyUniqueID);
+			Assert.Equal(TestCase.SkipReason, v3Message.SkipReason);
+			Assert.Equal(TestCase.SourceInformation?.FileName, v3Message.SourceFilePath);
+			Assert.Equal(TestCase.SourceInformation?.LineNumber, v3Message.SourceLineNumber);
+			Assert.Equal(TestCase.DisplayName, v3Message.TestCaseDisplayName);
+			Assert.Equal(TestCaseUniqueID, v3Message.TestCaseUniqueID);
+			Assert.Equal(TestClassUniqueID, v3Message.TestClassUniqueID);
+			Assert.Equal(TestCollectionUniqueID, v3Message.TestCollectionUniqueID);
+			Assert.Equal(TestMethodUniqueID, v3Message.TestMethodUniqueID);
+			Assert.Equal(Traits, v3Message.Traits);
+		}
+
+		[Fact]
 		public void DiscoveryComplete()
 		{
 			var v2Message = v2Mocks.DiscoveryCompleteMessage();
